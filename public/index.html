@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 16th Birthday! 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Music and Controls (Using BTS - Magic Shop) -->
+    <audio id="bg-music" src="magicshop.mp3" loop></audio>
+    <div class="music-container">
+        <button id="music-toggle" class="music-btn">🎵 Play Music</button>
+        <div class="bts-text hidden" id="bts-popup">I know my lil sis likes BTS, so here's a lovely song for you 💜</div>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <h2 class="glow-text">Preparing something special for you 💕</h2>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden">
+        
+        <!-- SECTION: Home -->
+        <section id="home" class="section active">
+            <h1 class="fadeInUp anim-delay-1 main-title">Happy 16th Birthday <br><span class="highlight">My Sister</span> 💖</h1>
+            <p class="fadeInUp anim-delay-2 sub-title">To the most amazing, sweetest, and cutest sister in the world 🌸</p>
+            <button class="cute-btn fadeInUp anim-delay-3" onclick="navigate('gallery')">Enter My Surprise 🎁</button>
+        </section>
+
+        <!-- SECTION: Gallery -->
+        <section id="gallery" class="section hidden">
+            <h2 class="section-title">Precious Memories 💕</h2>
+            <div class="carousel-container">
+                <button class="nav-btn prev-btn" onclick="moveSlide(-1)">❮</button>
+                <div class="carousel-slide fade">
+                    <img src="images/pic1.jpg" alt="You and me" class="gallery-img">
+                    <p class="caption">My favorite person 💕</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/pic2.jpg" alt="Solo pic" class="gallery-img">
+                    <p class="caption">So many memories together 🥺</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/pic3.jpg" alt="Memories" class="gallery-img">
+                    <p class="caption">Forever my little sister 💖</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/pic4.jpg" alt="More Memories" class="gallery-img">
+                    <p class="caption">Always smiling together 🌸</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/pic5.jpg" alt="Sister Solo" class="gallery-img">
+                    <p class="caption">Beautiful inside and out ✨</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/pic6.jpg" alt="Together" class="gallery-img">
+                    <p class="caption">The best times of my life 💖</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <video controls class="gallery-img" style="background: black;">
+                        <source src="images/vid1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="caption">And some fun memories too! 🎉</p>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/family.jpg" alt="Our Family" class="gallery-img">
+                    <p class="caption">Our beautiful family! I love you so much 👨‍👩‍👧‍👦💖</p>
+                </div>
+                <button class="nav-btn next-btn" onclick="moveSlide(1)">❯</button>
+            </div>
+            <button class="cute-btn mt-2" onclick="navigate('message')">Next 🌸</button>
+        </section>
+
+        <!-- SECTION: Message -->
+        <section id="message" class="section hidden">
+            <div class="letter-container">
+                <div class="letter-content" id="typed-text">
+                    <!-- Typed by JS -->
+                </div>
+            </div>
+            <button class="cute-btn mt-2" onclick="navigate('game')">Next Surprise 🥺</button>
+        </section>
+
+        <!-- SECTION: Game -->
+        <section id="game" class="section hidden">
+            <h2 class="section-title">Am I the Best Brother? 😎</h2>
+            <div class="button-group">
+                <button id="yes-btn" class="cute-btn yes-btn" onclick="chooseYes()">YES 💖</button>
+                <button id="no-btn" class="cute-btn no-btn">NO 😏</button>
+            </div>
+            <div id="game-result" class="hidden result-message">
+                <h3 class="glow-text">I knew it! 😌💖 You're the best sister ever!</h3>
+                <button class="cute-btn mt-2" onclick="navigate('surprise')">Final Surprise 🎁</button>
+            </div>
+        </section>
+
+        <!-- SECTION: Surprise -->
+        <section id="surprise" class="section hidden">
+            <h2 class="section-title glow-text">Make a wish 💫</h2>
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="candle" id="candle1"><div class="flame"></div></div>
+                    <div class="candle" id="candle2"><div class="flame"></div></div>
+                    <div class="candle" id="candle3"><div class="flame"></div></div>
+                </div>
+            </div>
+            <button id="blow-btn" class="cute-btn blow-btn" onclick="blowCandles()">Blow Candles 🎂</button>
+            <div id="final-message" class="hidden">
+                <h1 class="final-text glow-text mt-2">Happy Birthday once again, my lovely sister 💖 I love you so much!</h1>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

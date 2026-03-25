@@ -1,0 +1,12 @@
+Hi Yash!
+
+Please put the 6 images of your sister/together that you uploaded to our chat into this folder.
+Rename them as follows so they automatically show up on the website:
+- pic1.jpg
+- pic2.jpg
+- pic3.jpg
+- pic4.jpg
+- pic5.jpg
+- pic6.jpg
+
+(Make sure they are .jpg files. If they are png, you can rename them in the index.html or convert them.)
