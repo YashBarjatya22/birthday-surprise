@@ -1,5 +1,4 @@
-// Music Toggle Logic
-const musicBtn = document.getElementById('music-toggle');
+// Music Logic
 const bgMusic = document.getElementById('bg-music');
 let isPlaying = false;
 
@@ -16,7 +15,6 @@ window.addEventListener('load', () => {
             // Attempt auto-play
             bgMusic.play().then(() => {
                 isPlaying = true;
-                musicBtn.textContent = '⏸ Pause Music';
                 document.getElementById('bts-popup').classList.remove('hidden');
             }).catch(e => {
                 console.log('Autoplay prevented, waiting for interaction...', e);
@@ -25,7 +23,6 @@ window.addEventListener('load', () => {
                     if (!isPlaying) {
                         bgMusic.play().then(() => {
                             isPlaying = true;
-                            musicBtn.textContent = '⏸ Pause Music';
                             document.getElementById('bts-popup').classList.remove('hidden');
                             document.removeEventListener('click', playOnInteract);
                             document.removeEventListener('touchstart', playOnInteract);
@@ -39,18 +36,7 @@ window.addEventListener('load', () => {
     }, 2000);
 });
 
-musicBtn.addEventListener('click', () => {
-    if (isPlaying) {
-        bgMusic.pause();
-        musicBtn.textContent = '🎵 Play Music';
-        document.getElementById('bts-popup').classList.add('hidden');
-    } else {
-        bgMusic.play().catch(e => console.log('Audio play error', e));
-        musicBtn.textContent = '⏸ Pause Music';
-        document.getElementById('bts-popup').classList.remove('hidden');
-    }
-    isPlaying = !isPlaying;
-});
+
 
 // Navigation Function
 function navigate(sectionId) {
