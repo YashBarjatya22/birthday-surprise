@@ -1,3 +1,8 @@
+// Music Toggle Logic
+const musicBtn = document.getElementById('music-toggle');
+const bgMusic = document.getElementById('bg-music');
+let isPlaying = false;
+
 // Remove loading screen after delay
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -7,14 +12,32 @@ window.addEventListener('load', () => {
             loader.style.display = 'none';
             document.getElementById('main-content').classList.remove('hidden');
             createHearts();
+
+            // Attempt auto-play
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicBtn.textContent = '⏸ Pause Music';
+                document.getElementById('bts-popup').classList.remove('hidden');
+            }).catch(e => {
+                console.log('Autoplay prevented, waiting for interaction...', e);
+                // Play on first interaction if autoplay is blocked
+                const playOnInteract = () => {
+                    if (!isPlaying) {
+                        bgMusic.play().then(() => {
+                            isPlaying = true;
+                            musicBtn.textContent = '⏸ Pause Music';
+                            document.getElementById('bts-popup').classList.remove('hidden');
+                            document.removeEventListener('click', playOnInteract);
+                            document.removeEventListener('touchstart', playOnInteract);
+                        }).catch(err => console.log(err));
+                    }
+                };
+                document.addEventListener('click', playOnInteract, { once: true });
+                document.addEventListener('touchstart', playOnInteract, { once: true });
+            });
         }, 1000);
     }, 2000);
 });
-
-// Music Toggle Logic
-const musicBtn = document.getElementById('music-toggle');
-const bgMusic = document.getElementById('bg-music');
-let isPlaying = false;
 
 musicBtn.addEventListener('click', () => {
     if (isPlaying) {
