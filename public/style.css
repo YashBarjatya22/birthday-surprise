@@ -123,26 +123,28 @@ h1, h2, h3, .pacific-font, .section-title {
 
 /* Main Layout */
 .section {
-    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
+    padding: 100px 1.5rem 2rem 1.5rem; /* Ensure padding for music button at the top */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .section.active {
     opacity: 1;
     pointer-events: all;
-    position: relative;
+    position: absolute;
     z-index: 10;
 }
 
@@ -418,9 +420,13 @@ h1, h2, h3, .pacific-font, .section-title {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .main-title { font-size: 2.5rem; }
-    .section-title { font-size: 2rem; }
-    .sub-title { font-size: 1.2rem; }
-    .letter-container { padding: 1.5rem; font-size: 1.1rem; }
-    .gallery-img { height: 300px; }
+    .main-title { font-size: 2.2rem; }
+    .section-title { font-size: 1.8rem; }
+    .sub-title { font-size: 1.1rem; }
+    .letter-container { padding: 1.5rem 1rem; font-size: 1rem; min-height: auto; }
+    .gallery-img { height: auto; max-height: 50vh; }
+    .cake { font-size: 5rem; }
+    .music-container { top: 10px; right: 10px; transform: scale(0.85); transform-origin: top right; }
+    .cute-btn { padding: 12px 25px; font-size: 1rem; }
+    .carousel-container { width: 95%; padding: 10px; }
 }
